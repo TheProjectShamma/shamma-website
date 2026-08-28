@@ -1,0 +1,202 @@
+:root {
+  --cyan: #06b6d4;
+  --cyan-700: #0891b2;
+  --green-700: #047857;
+  --green-600: #059669;
+  --surface: #ecfdf5;
+  --surface-strong: #e6f7ef;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(6, 182, 212, 0.14), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(4, 120, 87, 0.16), transparent 28%),
+    var(--surface);
+  color: #0f172a;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--cyan-700);
+  color: white;
+}
+
+.section-shell {
+  scroll-margin-top: 1.5rem;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.section-shell:hover {
+  transform: translateY(-2px);
+}
+
+.section-nav {
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transform: translateY(-50%);
+}
+
+.section-nav__dot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 9999px;
+  border: 2px solid rgba(6, 182, 212, 0.38);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  cursor: pointer;
+}
+
+.section-nav__dot::after {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 9999px;
+  background: var(--cyan);
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.section-nav__dot:hover,
+.section-nav__dot.active,
+.section-nav__dot.hovered {
+  transform: scale(1.12);
+  border-color: var(--green-700);
+  background: rgba(236, 253, 245, 1);
+}
+
+.section-nav__dot.active::after,
+.section-nav__dot:hover::after,
+.section-nav__dot.hovered::after {
+  transform: scale(1.25);
+  background: var(--green-700);
+}
+
+.section-nav__label {
+  position: absolute;
+  right: 1.35rem;
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  min-width: max-content;
+  padding: 0.35rem 0.7rem;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #f8fafc;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.2);
+}
+
+.section-nav__dot:hover .section-nav__label,
+.section-nav__dot.hovered .section-nav__label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+@media (max-width: 768px) {
+  .section-nav {
+    right: 0.5rem;
+  }
+  .contact-sidebar{
+    top:auto;
+    left:50%;
+    bottom:1rem;
+
+    transform:translateX(-50%);
+
+    flex-direction:row;
+    align-items: center;
+    gap:.6rem;
+  }
+  .contact-sidebar__header{
+    display:none;
+  }
+
+  .contact-sidebar__link{
+    width:40px;
+    height:40px;
+  }
+
+  .contact-sidebar__label{
+    display:none;
+  }
+
+  .contact-sidebar__link:hover{
+    width:40px;
+  }
+}
+
+.shadow-glow {
+  box-shadow: 0 32px 80px rgba(15, 23, 42, 0.12);
+}
+
+.bg-cyan {
+  background-color: var(--cyan) !important;
+  color: #fff !important;
+}
+
+.bg-surface {
+  background-color: var(--surface-strong) !important;
+}
+
+.bg-surface\/80 {
+  background-color: rgba(236, 254, 255, 0.80) !important;
+}
+
+.bg-card {
+  background: rgba(236, 254, 255, 0.96) !important;
+  border-color: rgba(6, 182, 212, 0.22) !important;
+  backdrop-filter: blur(14px);
+}
+
+.bg-white {
+  background-color: var(--cyan-50) !important;
+}
+
+.bg-white\/80 {
+  background-color: rgba(236, 254, 255, 0.8) !important;
+}
+
+.bg-white\/90 {
+  background-color: rgba(236, 254, 255, 0.9) !important;
+}
+
+.hover\:bg-white:hover {
+  background-color: var(--cyan-50) !important;
+}
+
+.hover\:bg-white\/90:hover {
+  background-color: rgba(236, 254, 255, 0.9) !important;
+}
+
+.border-white\/80 {
+  border-color: rgba(236, 254, 255, 0.8) !important;
+}
+
+.bg-slate-50,
+.bg-cyan-100,
+.bg-emerald-50 {
+  background-color: #ecfeff !important;
+}

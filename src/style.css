@@ -1,0 +1,267 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.section-shell {
+  scroll-margin-top: 2rem;
+}
+
+.section-nav {
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transform: translateY(-50%);
+}
+
+.section-nav__dot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.95rem;
+  height: 0.95rem;
+  border: 0;
+  border-radius: 9999px;
+  background: rgba(15, 118, 110, 0.28);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.section-nav__dot::after {
+  content: "";
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 9999px;
+  background: #0f766e;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.section-nav__dot:hover,
+.section-nav__dot.hovered,
+.section-nav__dot.active {
+  transform: scale(1.18);
+  background: rgba(8, 145, 178, 0.2);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.25);
+}
+
+.section-nav__dot:hover::after,
+.section-nav__dot.hovered::after,
+.section-nav__dot.active::after {
+  transform: scale(1.35);
+  background: #0891b2;
+}
+
+.section-nav__label {
+  position: absolute;
+  right: calc(100% + 0.7rem);
+  white-space: nowrap;
+  border-radius: 9999px;
+  background: rgba(17, 24, 39, 0.92);
+  color: white;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateX(6px);
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.section-nav__dot:hover .section-nav__label,
+.section-nav__dot.hovered .section-nav__label,
+.section-nav__dot.active .section-nav__label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.contact-sidebar {
+  position: fixed;
+  top: 1.5rem;
+  left: 1rem;
+  z-index: 60;
+  width: 150px; 
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
+.contact-sidebar__header {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #0f766e;
+  margin-bottom: 0.2rem;
+
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.contact-sidebar__link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+
+  border-radius: 999px;
+  background: rgba(255,255,255,.95);
+  box-shadow: 0 8px 18px rgba(15,23,42,.12);
+
+  transition: width .25s ease;
+}
+
+.contact-sidebar__link:hover {
+  width: max-content;
+  min-width: 140px;
+}
+
+.contact-sidebar__icon {
+  flex-shrink: 0;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: linear-gradient(135deg,#06b6d4,#10b981);
+
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.contact-sidebar__icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.region-map {
+  position: relative;
+  z-index: 0;
+  height: 420px;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.map-marker-wrap {
+  background: none;
+  border: none;
+}
+
+.map-marker {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.map-marker__halo,
+.map-marker__core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+}
+
+/* Active: bright green core with a strong layered glow and a pulsing ring */
+.map-marker--active .map-marker__core {
+  width: 16px;
+  height: 16px;
+  background: #10b981;
+  border: 3px solid #047857;
+  box-shadow:
+    0 0 10px 3px rgba(16, 185, 129, 0.9),
+    0 0 26px 10px rgba(16, 185, 129, 0.55),
+    0 0 52px 24px rgba(16, 185, 129, 0.28);
+}
+
+.map-marker--active .map-marker__halo {
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(16, 185, 129, 0.85);
+  animation: map-pulse 2.2s ease-out infinite;
+}
+
+@keyframes map-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3.6);
+    opacity: 0;
+  }
+}
+
+/* Expanding: a wide soft blue glow field over the area, with a small core */
+.map-marker--expanding .map-marker__halo {
+  width: 110px;
+  height: 110px;
+  background: radial-gradient(
+    circle,
+    rgba(6, 182, 212, 0.55) 0%,
+    rgba(6, 182, 212, 0.3) 42%,
+    rgba(6, 182, 212, 0) 72%
+  );
+}
+
+.map-marker--expanding .map-marker__core {
+  width: 12px;
+  height: 12px;
+  background: #06b6d4;
+  border: 2px solid #0891b2;
+  box-shadow: 0 0 14px 5px rgba(6, 182, 212, 0.75);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-marker--active .map-marker__halo {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+.contact-sidebar__label {
+  white-space: nowrap;
+
+  margin-right: 12px;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  opacity: 0;
+  transform: translateX(8px);
+  transition: all .2s ease;
+}
+
+.contact-sidebar__link:hover .contact-sidebar__label {
+  opacity: 1;
+  transform: translateX(0);
+}
