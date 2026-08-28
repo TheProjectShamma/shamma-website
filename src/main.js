@@ -60,8 +60,8 @@ window.addEventListener("load", () => {
 
   initRegionMap();
 });
-
-const volunteerFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSepUg142w4nj_EyLcENLj4iGFo02lcifiAx-urq91H0qVCDwg/viewform?usp=header";
+//the link to the volunteer form is "https://docs.google.com/forms/d/e/1FAIpQLSepUg142w4nj_EyLcENLj4iGFo02lcifiAx-urq91H0qVCDwg/closedform"
+const volunteerFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLScA_lIgOTaeGCCduvvY-3Ok6_22SN-7OYQ2AxLM98gvf5UlNQ/viewform";// this the link to waitinh list form
 
 const volunteerLinks = document.querySelectorAll('a[href="#volunteer"], a[href="#volunteer-form"]');
 volunteerLinks.forEach((link) => {
