@@ -22,7 +22,7 @@ function initRegionMap() {
     { name: "Wah Cantt", coords: [33.748, 72.7847], status: "active" },
     { name: "Islamabad", coords: [33.6844, 73.0479], status: "active" },
     { name: "Rawalpindi", coords: [33.5651, 73.0369], status: "expanding" },
-    { name: "Margalla Region", cords: [33.749375, 73.005815], status: "expanding"},
+    { name: "B-17", coords: [33.6895, 72.8285], status: "expanding"},
   ];
 
   // 4. Custom marker icon generator using custom CSS classes
