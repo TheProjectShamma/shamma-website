@@ -5,6 +5,11 @@ import L from "leaflet";
 import "leaflet.markercluster";
 import { initRegionMap } from "./Map.js";
 
+
+//The initRegionMap function and all associated functions have been transferred to Map.js
+/*The only thing being initiated here is the function 
+and the argument maRegion which refers to the html id */
+
 const mapRegion = document.getElementById("region-map");
 window.addEventListener("load", () => {
   window.scrollTo({ top: 0, left: 0, behavior: "auto" });
