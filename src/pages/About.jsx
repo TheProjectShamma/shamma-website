@@ -72,13 +72,18 @@ export default function About() {
               </div>
             ),
           },
+          {
+            id: "more",
+            title: "More about us",
+            render: () => (
+              <p className="text-muted">
+                If you want the detail, <Link to="/goals">our goals</Link> say what we are working
+                toward, and <Link to="/program">our program</Link> shows how the work actually runs.
+              </p>
+            ),
+          },
         ]}
       />
-
-      <p className="mt-6 max-w-3xl border-t border-line pt-4 text-muted">
-        If you want the detail, <Link to="/goals">our goals</Link> say what we are working toward,
-        and <Link to="/program">our program</Link> shows how the work actually runs.
-      </p>
     </Page>
   );
 }

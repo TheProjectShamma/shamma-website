@@ -14,7 +14,7 @@ export function Page({ title, lede, children }) {
     <div className="mx-auto w-full max-w-7xl px-6 pb-8 pt-20">
       <header className="mb-6 flex flex-wrap items-end justify-between gap-x-10 gap-y-2 border-b border-line pb-4">
         <h1 className="text-3xl text-ink">{title}</h1>
-        {lede && <p className="max-w-xl text-base text-muted">{lede}</p>}
+        {lede && <p className="max-w-xl text-lg text-muted">{lede}</p>}
       </header>
       {children}
     </div>
@@ -68,7 +68,7 @@ export function Split({ sections }) {
                 </span>
               </button>
               {open && (
-                <div id={`panel-${section.id}`} className="page-in pt-4 md:hidden">
+                <div id={`panel-${section.id}`} className="page-in pt-4 pb-3 md:hidden">
                   {section.render()}
                 </div>
               )}
@@ -93,7 +93,7 @@ export function Item({ term, note, children }) {
     <div className="grid gap-x-6 py-2.5 sm:grid-cols-[9rem_1fr]">
       <dt className="text-ink">
         {term}
-        {note && <span className="mt-0.5 block text-xs text-flame">{note}</span>}
+        {note && <span className="mt-0.5 block text-sm text-flame">{note}</span>}
       </dt>
       <dd className="text-muted">{children}</dd>
     </div>
@@ -102,7 +102,7 @@ export function Item({ term, note, children }) {
 
 export function Quote({ children }) {
   return (
-    <blockquote className="border-l-2 border-flame pl-5 text-lg text-ink">
+    <blockquote className="border-l-2 border-flame pl-5 text-xl text-ink">
       {children}
     </blockquote>
   );
@@ -110,7 +110,7 @@ export function Quote({ children }) {
 
 export function Btn({ to, href, children, plain = false }) {
   const className = [
-    "no-underline inline-block rounded-sm border-2 px-8 py-3.5 text-base font-medium transition-colors",
+    "no-underline inline-block rounded-sm border-2 px-8 py-3.5 text-lg font-medium transition-colors",
     plain
       ? "border-ink/70 bg-ink/10 text-ink hover:bg-ink hover:text-paper"
       : "border-flame bg-flame text-paper shadow-lg shadow-flame/30 hover:border-ink hover:bg-ink",

@@ -11,13 +11,13 @@ export default function Home() {
             Connecting academia with communities in need.
           </h1>
 
-          <p className="mt-5 text-lg leading-relaxed text-ink/85">
+          <p className="mt-5 text-xl leading-relaxed text-ink/85">
             Shamma is a student-led initiative, by the people and for the people — carrying
             knowledge, mentorship and consistent care beyond the classroom, to orphanages, old
             homes, and the organizations that serve those who need support.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 md:flex-row md:flex-wrap">
             <Btn to="/volunteer">Volunteer with us</Btn>
             <Btn to="/about" plain>
               About Shamma
