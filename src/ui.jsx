@@ -23,32 +23,61 @@ export function Page({ title, lede, children }) {
 
 export function Split({ sections }) {
   const [id, setId] = useState(sections[0].id);
+  const [closed, setClosed] = useState(false);
   const current = sections.find((s) => s.id === id) ?? sections[0];
+
+  const isOpen = (section) => !closed && section.id === id;
+
+  const toggle = (section) => {
+    if (isOpen(section)) setClosed(true);
+    else {
+      setId(section.id);
+      setClosed(false);
+    }
+  };
 
   return (
     <div className="flex flex-col gap-5 md:flex-row md:gap-14">
       <nav
         aria-label="Sections"
-        className="flex shrink-0 gap-2 overflow-x-auto pb-1 md:w-64 md:flex-col md:overflow-visible md:pb-0"
+        className="flex shrink-0 flex-col gap-2 md:w-64 md:overflow-visible"
       >
-        {sections.map((section) => (
-          <button
-            key={section.id}
-            type="button"
-            onClick={() => setId(section.id)}
-            aria-current={section.id === id ? "true" : undefined}
-            className={`flex h-14 min-w-48 shrink-0 items-center border-2 px-4 text-left leading-snug transition-colors md:min-w-0 ${
-              section.id === id
-                ? "border-ink bg-paper text-ink"
-                : "border-ink bg-ink text-paper hover:bg-body"
-            }`}
-          >
-            <span className="line-clamp-2">{section.title}</span>
-          </button>
-        ))}
+        {sections.map((section) => {
+          const open = isOpen(section);
+          return (
+            <div key={section.id}>
+              <button
+                type="button"
+                onClick={() => toggle(section)}
+                aria-expanded={open}
+                aria-controls={open ? `panel-${section.id}` : undefined}
+                className={`flex h-14 w-full shrink-0 items-center justify-between gap-3 border-2 px-4 text-left leading-snug transition-colors md:min-w-0 ${
+                  open
+                    ? "border-ink bg-paper text-ink"
+                    : "border-ink bg-ink text-paper hover:bg-body"
+                }`}
+              >
+                <span className="line-clamp-2">{section.title}</span>
+                <span
+                  aria-hidden="true"
+                  className={`text-xs transition-transform md:hidden ${
+                    open ? "rotate-90" : ""
+                  }`}
+                >
+                  ▸
+                </span>
+              </button>
+              {open && (
+                <div id={`panel-${section.id}`} className="page-in pt-4 md:hidden">
+                  {section.render()}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </nav>
 
-      <div key={current.id} className="page-in min-w-0 md:max-w-3xl md:flex-1">
+      <div key={current.id} className="page-in hidden min-w-0 md:block md:max-w-3xl md:flex-1">
         {current.render()}
       </div>
     </div>

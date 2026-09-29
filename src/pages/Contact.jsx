@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CONTACTS } from "../content";
+import { CONTACT_ICONS, MailIcon } from "../icons";
 import { Btn, Item, List, Page, Split } from "../ui";
 
 export default function Contact() {
@@ -16,18 +17,33 @@ export default function Contact() {
             render: () => (
               <div className="space-y-4">
                 <List>
-                  {CONTACTS.map(({ label, value, href }) => (
-                    <Item key={label} term={label}>
-                      <a
-                        href={href}
-                        target={href.startsWith("mailto:") ? undefined : "_blank"}
-                        rel={href.startsWith("mailto:") ? undefined : "noreferrer"}
-                        className="break-words"
+                  {CONTACTS.map(({ label, value, href }) => {
+                    const Icon = CONTACT_ICONS[label];
+                    return (
+                      <Item
+                        key={label}
+                        term={
+                          <span className="inline-flex items-center gap-2">
+                            {Icon && (
+                              <span aria-hidden="true" className="text-flame">
+                                <Icon className="size-4" />
+                              </span>
+                            )}
+                            {label}
+                          </span>
+                        }
                       >
-                        {value}
-                      </a>
-                    </Item>
-                  ))}
+                        <a
+                          href={href}
+                          target={href.startsWith("mailto:") ? undefined : "_blank"}
+                          rel={href.startsWith("mailto:") ? undefined : "noreferrer"}
+                          className="break-words"
+                        >
+                          {value}
+                        </a>
+                      </Item>
+                    );
+                  })}
                   <Item term="Postal address">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                     incididunt ut labore.
@@ -37,7 +53,12 @@ export default function Contact() {
                     incididunt ut labore et dolore.
                   </Item>
                 </List>
-                <Btn href="mailto:shamma.desk@gmail.com">Write an email</Btn>
+                <Btn href="mailto:shamma.desk@gmail.com">
+                  <span className="inline-flex items-center gap-2">
+                    <MailIcon className="size-4" />
+                    Write an email
+                  </span>
+                </Btn>
               </div>
             ),
           },

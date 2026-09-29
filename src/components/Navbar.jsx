@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { ABOUT_LINKS, LINKS } from "../content";
+import { MenuIcon } from "../icons";
 
 export default function Navbar() {
   const { pathname } = useLocation();
@@ -11,7 +12,9 @@ export default function Navbar() {
     <Link
       to={to}
       className={
-        pathname === to ? "text-flame" : "text-ink/85 hover:text-ink"
+        `underline underline-offset-4 ${
+          pathname === to ? "text-flame" : "text-ink/85 hover:text-ink"
+        }`
       }
       aria-current={pathname === to ? "page" : undefined}
     >
@@ -36,7 +39,7 @@ export default function Navbar() {
 
             <details className="group relative">
               <summary
-                className={`flex cursor-pointer list-none text-sm hover:text-ink [&::-webkit-details-marker]:hidden ${
+                className={`flex cursor-pointer list-none underline underline-offset-4 text-sm hover:text-ink [&::-webkit-details-marker]:hidden ${
                   inAbout ? "text-flame" : "text-ink/85"
                 }`}
               >
@@ -62,7 +65,8 @@ export default function Navbar() {
           </nav>
 
           <details className="group md:hidden">
-            <summary className="cursor-pointer list-none text-sm text-ink/85 hover:text-ink [&::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer list-none items-center gap-2 rounded-sm border-2 border-ink bg-ink px-3 py-1.5 text-sm font-medium leading-none text-paper transition-colors hover:bg-body [&::-webkit-details-marker]:hidden">
+              <MenuIcon className="size-4" />
               Menu
             </summary>
             <nav

@@ -4,8 +4,8 @@ export default function Home() {
   useTitle("Connecting academia with communities in need");
 
   return (
-    <section className="flex flex-1 flex-col md:flex-row">
-      <div className="flex w-full flex-col justify-center bg-panel px-6 py-12 md:w-1/2 md:py-10">
+    <section className="relative flex flex-1 flex-col md:flex-row">
+      <div className="relative z-10 flex w-full flex-col justify-center px-6 pt-20 pb-12 md:w-1/2 md:bg-panel md:py-10">
         <div className="mx-auto w-full max-w-xl">
           <h1 className="text-4xl leading-tight text-ink sm:text-5xl">
             Connecting academia with communities in need.
@@ -26,7 +26,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative h-72 w-full shrink-0 md:h-auto md:w-1/2">
+      <div className="absolute inset-0 md:relative md:inset-auto md:block md:h-auto md:w-1/2 md:shrink-0">
         <img
           src="/photos/photo-1.jpg"
           alt=""
@@ -34,6 +34,7 @@ export default function Home() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div aria-hidden="true" className="vignette absolute inset-0" />
+        <div aria-hidden="true" className="absolute inset-0 bg-black/30 md:hidden" />
       </div>
     </section>
   );
