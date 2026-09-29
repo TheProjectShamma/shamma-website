@@ -5,7 +5,7 @@ export default function Home() {
 
   return (
     <section className="relative flex flex-1 flex-col md:flex-row">
-      <div className="relative z-10 flex w-full flex-col justify-center px-6 pt-20 pb-12 md:w-1/2 md:bg-panel md:py-10">
+      <div className="relative z-10 flex w-full flex-1 flex-col justify-center px-6 py-12 md:w-1/2 md:flex-none md:bg-panel md:py-10">
         <div className="mx-auto w-full max-w-xl">
           <h1 className="text-4xl leading-tight text-ink sm:text-5xl">
             Connecting academia with communities in need.
