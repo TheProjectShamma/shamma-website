@@ -93,16 +93,26 @@
 
 @layer base {
   html {
-    font-size: 120%;
+    font-size: 100%;
   }
 
   body {
     background-color: var(--night);
     color: var(--body);
     font-family: var(--serif);
-    font-size: 1.08em;
+    font-size: 1rem;
     line-height: 1.65;
     text-rendering: optimizeLegibility;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      font-size: 115%;
+    }
+
+    body {
+      font-size: 1.08em;
+    }
   }
 
   h1,
