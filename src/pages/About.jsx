@@ -77,8 +77,8 @@ export default function About() {
             title: "More about us",
             render: () => (
               <p className="text-muted">
-                If you want the detail, <Link to="/goals">our goals</Link> say what we are working
-                toward, and <Link to="/program">our program</Link> shows how the work actually runs.
+                If you want the details, <Link to="/goals">our goals</Link> say what we are working
+                towards, and <Link to="/program">our program</Link> shows how the work actually gets done.
               </p>
             ),
           },
