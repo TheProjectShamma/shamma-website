@@ -43,7 +43,7 @@ export default function Navbar() {
                   inAbout ? "text-flame" : "text-ink/85"
                 }`}
               >
-                <span class="underline underline-offset-4">About</span>
+                <span className="underline underline-offset-4">About</span>
                 <span aria-hidden="true" className="text-[0.6rem] group-open:rotate-180">
                   ▼
                 </span>
