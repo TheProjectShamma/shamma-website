@@ -39,12 +39,12 @@ export default function Navbar() {
 
             <details className="group relative">
               <summary
-                className={`flex cursor-pointer list-none underline underline-offset-4 text-sm hover:text-ink [&::-webkit-details-marker]:hidden ${
+                className={`inline-flex items-center gap-1 cursor-pointer list-none text-sm hover:text-ink [&::-webkit-details-marker]:hidden ${
                   inAbout ? "text-flame" : "text-ink/85"
                 }`}
               >
-                About
-                <span aria-hidden="true" className="ml-1.5 text-[0.6rem] group-open:rotate-180">
+                <span class="underline underline-offset-4">About</span>
+                <span aria-hidden="true" className="text-[0.6rem] group-open:rotate-180">
                   ▼
                 </span>
               </summary>
