@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Goals from "./pages/Goals";
 import Home from "./pages/Home";
 import Volunteer from "./pages/Volunteer";
+import Gallery from "./pages/Gallery";
 import { Page } from "./ui";
 
 const Program = lazy(() => import("./pages/Program"));
@@ -53,6 +54,7 @@ function Shell() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/goals" element={<Goals />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route
             path="/program"
             element={

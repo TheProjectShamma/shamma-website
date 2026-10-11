@@ -263,3 +263,56 @@
   background: var(--paper);
   border: 2px dashed var(--flame);
 }
+
+/* Custom Swiper Theme Integration */
+.custom-workshop-slider {
+  --swiper-navigation-color: var(--ink);
+  --swiper-pagination-color: var(--ink);
+  --swiper-pagination-bullet-inactive-color: var(--ink);
+  --swiper-pagination-bullet-inactive-opacity: 0.35;
+  --swiper-navigation-size: 20px;
+}
+
+/* Style the navigation buttons to match your panel/paper design tokens */
+.custom-workshop-slider .swiper-button-next,
+.custom-workshop-slider .swiper-button-prev {
+  background-color: var(--paper);
+  color: var(--ink);
+  width: 42px;
+  height: 42px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  ::slotted(svg), svg {
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+.custom-workshop-slider .swiper-button-next:hover,
+.custom-workshop-slider .swiper-button-prev:hover {
+  background-color: var(--panel);
+  border-color: var(--ink);
+}
+
+/* Adjust pseudo-element icon scaling for Swiper arrows */
+.custom-workshop-slider .swiper-button-next::after,
+.custom-workshop-slider .swiper-button-prev::after {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Adjust pagination dot spacing and styling */
+.custom-workshop-slider .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: var(--ink);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.custom-workshop-slider .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+

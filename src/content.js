@@ -7,6 +7,7 @@ export const LINKS = [
   { to: "/", label: "Home" },
   { to: "/volunteer", label: "Volunteer" },
   { to: "/contact", label: "Contact" },
+  { to: "/gallery", label: "Gallery" },
 ];
 
 export const ABOUT_LINKS = [
@@ -38,4 +39,35 @@ export const REGIONS = [
   { name: "Islamabad", coords: [33.6844, 73.0479], status: "expanding", note: "Active" },
   { name: "Margalla Region", coords: [33.749375, 73.005815], status: "active", note: "Expanding" },
   { name: "Rawalpindi", coords: [33.5651, 73.0369], status: "expanding", note: "Expanding" },
+];
+
+export const banners = [
+    {
+        image: "/photos/photo-1.jpg",
+        alt: "Workshop Image 1",
+        title: "Workshop Title 1"
+    },
+    {
+        image: "/photos/photo-2.jpg",
+        alt: "Workshop Image 2",
+        title: "Workshop Title 2"
+    }
+];
+
+export const workshops = [
+    {
+        image: "/photos/photo-3.jpg",
+        alt: "Workshop Image 3",
+        title: "Workshop Title 3"
+    },
+    {
+        image: "/photos/photo-2.jpg",
+        alt: "Workshop Image 2",
+        title: "Workshop Title 4"
+    },
+    {
+        image: "/photos/photo-1.jpg",
+        alt: "Workshop Image 1",
+        title: "Workshop Title 5"
+    }
 ];
