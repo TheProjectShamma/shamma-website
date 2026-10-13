@@ -1,7 +1,7 @@
 export const SITE_TITLE = "Shamma";
 
 export const VOLUNTEER_FORM =
-  "https://docs.google.com/forms/d/e/1FAIpQLScA_lIgOTaeGCCduvvY-3Ok6_22SN-7OYQ2AxLM98gvf5UlNQ/viewform";
+  "https://forms.gle/okMpDUW9pzPjKYhA6";
 
 export const LINKS = [
   { to: "/", label: "Home" },
